@@ -8,7 +8,6 @@
         "servo": "*"
     },
     "files": [
-        "main.blocks",
         "main.ts",
         "_locales/pxt/README.md"
     ],
