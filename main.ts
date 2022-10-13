@@ -41,7 +41,7 @@ radio.onReceivedValue(function (name, value) {
 function Main() {
     radio.setGroup(252); // Задать номер групового общения
     while (true) {
-        holonomicSpeedVectorMove(0, 10, 0, 10);
+        holonomicSpeedVectorMove(x, y, yaw, 10);
     }
 }
 
