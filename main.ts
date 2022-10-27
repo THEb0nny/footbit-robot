@@ -7,7 +7,12 @@ function holonomicSpeedVectorMove(x: number, y: number, w: number, time?: number
     let F_A = y * -0.58 + x * -0.33 + w * 0.33;
     let F_B = y * 0.58 + x * -0.33 + w * 0.33;
     let F_C = x * 0.68 + w * 0.33;
-    servos.P0.run(F_A * (setInvertA ? -1 : 1)); servos.P1.run(F_B * (setInvertB ? -1 : 1)); servos.P2.run(F_C * (setInvertC ? -1 : 1));
+    if (F_A != 0) servos.P0.run(F_A * (setInvertA ? -1 : 1));
+    else servos.P0.stop();
+    if (F_B != 0) servos.P1.run(F_B * (setInvertB ? -1 : 1));
+    else servos.P1.stop();
+    if (F_C != 0) servos.P2.run(F_C * (setInvertC ? -1 : 1));
+    else servos.P2.stop();
     pause((time ? time : 1));
 }
 
